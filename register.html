@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Daftar - Rekomendasi Buku</title>
+    <title>Daftar - Bookwise</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body class="bg-primary-subtle">
@@ -34,9 +34,7 @@
 
     <script>
       document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // cegah submit form default
-
-        // Validasi konfirmasi password
+        event.preventDefault(); 
         const password = this.password.value;
         const confirmPassword = this.confirm_password.value;
 
@@ -45,7 +43,6 @@
           return;
         }
 
-        // Jika valid, alihkan ke halaman login
         alert('Registrasi berhasil! Silakan login.');
         window.location.href = 'login.html';
       });
