@@ -1,0 +1,165 @@
+<?php
+session_start();
+if(isset($_SESSION['role'])) {
+    if($_SESSION['role'] == 'admin'){
+        header('Location: admin/admin_dashboard.php');
+    } else {
+        header('Location: user/user_dashboard.php');
+        exit;
+    }
+  }
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bookwise - Tentang Kami</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #027ffc 0%, #0059b3 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(2,127,252,0.4);
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 3rem;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin: 0;
+      font-style: italic;
+      user-select: none;
+    }
+    nav {
+      background-color: #0080ff;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      box-shadow: 0 2px 8px rgba(0, 128, 255, 0.3);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #0059b3;
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 40px 50px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      transition: box-shadow 0.3s ease;
+    }
+    main:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    h2 {
+      color: #027ffc;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 2.4rem;
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+      margin-bottom: 25px;
+    }
+    ul li {
+      background: #e7f0ff;
+      color: #004080;
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 10px rgba(2,127,252,0.2);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      cursor: default;
+    }
+    ul li:hover {
+      background: #c0dafd;
+    }
+    ul li::before {
+      content: "📚";
+      font-size: 1.5rem;
+    }
+    footer {
+      background-color: #0080ff;
+      color: white;
+      text-align: center;
+      padding: 18px 20px;
+      margin-top: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+      letter-spacing: 0.05em;
+      box-shadow: 0 -2px 10px rgba(0, 128, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Bookwise</h1>
+    <p>Temukan rekomendasi buku terbaik untukmu</p>
+  </header>
+
+  <nav>
+    <a href="register.html">Daftar Akun</a>
+    <a href="login.html">Masuk Akun</a>
+  </nav>
+
+  <main>
+    <h2>Tentang Bookwise</h2>
+    <p>Selamat datang di <strong>Bookwise</strong>, platform rekomendasi buku yang didedikasikan untuk membantu kamu menemukan buku terbaik sesuai minat dan kebutuhanmu. Kami percaya bahwa membaca adalah salah satu cara terbaik untuk memperluas wawasan, mengembangkan diri, dan mendapatkan inspirasi.</p>
+
+    <p>Di Bookwise, kami menyediakan daftar rekomendasi buku yang telah dipilih secara cermat dari berbagai genre dan kategori. Setiap rekomendasi dilengkapi dengan deskripsi singkat yang membantu kamu memahami isi dan manfaat buku tersebut sebelum memutuskan untuk membacanya.</p>
+
+    <p>Fitur utama kami meliputi:</p>
+    <ul>
+      <li><strong>Rekomendasi Harian:</strong> Buku-buku pilihan yang diperbarui secara rutin untuk memberikan inspirasi baru setiap hari.</li>
+      <li><strong>Kategori Beragam:</strong> Pilihan kategori buku yang luas mulai dari pengembangan diri, sejarah, psikologi, hingga fiksi dan non-fiksi.</li>
+      <li><strong>User-Friendly:</strong> Tampilan yang sederhana dan mudah digunakan sehingga kamu bisa fokus pada menemukan buku yang tepat.</li>
+      <li><strong>Akses Mudah:</strong> Bisa diakses melalui berbagai perangkat kapan saja dan di mana saja.</li>
+    </ul>
+
+    <p>Kami terus berkomitmen untuk menghadirkan pengalaman terbaik bagi para pecinta buku dan membantu membangun komunitas pembaca yang aktif dan inspiratif. Terima kasih telah memilih Bookwise sebagai teman membaca kamu!</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Bookwise | Dibuat dengan ♥ oleh Tim Anda
+  </footer>
+
+</body>
+</html>
