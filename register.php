@@ -37,51 +37,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Daftar - Bookwise</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daftar - Rekomendasi Buku</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe6f0;
+        }
+        .text-pink {
+            color: #d63384;
+        }
+        .btn-pink {
+            background-color: #d63384;
+            border-color: #d63384;
+            color: white;
+        }
+        .btn-pink:hover {
+            background-color: #c12575;
+            border-color: #c12575;
+        }
+    </style>
 </head>
-<body class="bg-primary-subtle">
+<body>
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
-            <h4 class="text-center text-primary mb-3">Registrasi Akun</h4>
+            <h4 class="text-center text-pink mb-3">Registrasi Akun</h4>
 
-            <form id="registerForm">
+            <?php if(isset($error)): ?>
+                <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
+
+            <form method="post">
                 <div class="mb-3">
                     <label class="form-label">Username</label>
-                    <input type="text" name="username" class="form-control" required autofocus />
+                    <input type="text" name="username" class="form-control" required autofocus>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" required />
+                    <input type="password" name="password" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Konfirmasi Password</label>
-                    <input type="password" name="confirm_password" class="form-control" required />
+                    <input type="password" name="confirm_password" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Daftar</button>
+                <button class="btn btn-pink w-100">Daftar</button>
             </form>
             <p class="mt-3 text-center">
-                Sudah punya akun? <a href="login.html">Login di sini</a>
+                Sudah punya akun? <a href="login.php" class="text-pink">Login di sini</a>
             </p>
         </div>
     </div>
-
-    <script>
-      document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        const password = this.password.value;
-        const confirmPassword = this.confirm_password.value;
-
-        if (password !== confirmPassword) {
-          alert('Password dan Konfirmasi Password tidak sama.');
-          return;
-        }
-
-        alert('Registrasi berhasil! Silakan login.');
-        window.location.href = 'login.html';
-      });
-    </script>
 </body>
 </html>
